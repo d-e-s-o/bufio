@@ -41,7 +41,8 @@ impl<'buf> Writer<'buf> {
     Self { buffer, written: 0 }
   }
 
-  /// Retrieve the number of bytes written to the underlying buffer.
+  /// Retrieve the slice of the managed buffer that has been written so
+  /// far.
   #[inline]
   pub fn written(&self) -> &'buf [u8] {
     let slice = &self.buffer[0..self.written];
