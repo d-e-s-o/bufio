@@ -1,0 +1,15 @@
+[package]
+name = "bufio"
+version = "0.0.0"
+edition = "2021"
+authors = ["Daniel Mueller <deso@posteo.net>"]
+homepage = "https://github.com/d-e-s-o/bufio"
+repository = "https://github.com/d-e-s-o/bufio.git"
+documentation = "https://docs.rs/bufio"
+readme = "README.md"
+description = """
+std::io::Write for your potentially uninitialized slice of memory.
+"""
+
+
+[dependencies]
