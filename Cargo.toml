@@ -2,6 +2,7 @@
 name = "bufio"
 version = "0.0.0"
 edition = "2021"
+rust-version = "1.56"
 authors = ["Daniel Mueller <deso@posteo.net>"]
 homepage = "https://github.com/d-e-s-o/bufio"
 repository = "https://github.com/d-e-s-o/bufio.git"
