@@ -1,13 +1,26 @@
 [package]
 name = "bufio"
-version = "0.0.0"
+version = "0.1.0"
 edition = "2021"
 rust-version = "1.56"
+license = "Apache-2.0 OR MIT"
 authors = ["Daniel Mueller <deso@posteo.net>"]
 homepage = "https://github.com/d-e-s-o/bufio"
 repository = "https://github.com/d-e-s-o/bufio.git"
 documentation = "https://docs.rs/bufio"
 readme = "README.md"
+categories = [
+  "api-bindings",
+  "embedded",
+  "memory-management",
+  "rust-patterns",
+  "value-formatting",
+]
+keywords = [
+  "memory",
+  "stack",
+  "write",
+]
 description = """
 std::io::Write for your potentially uninitialized slice of memory.
 """
