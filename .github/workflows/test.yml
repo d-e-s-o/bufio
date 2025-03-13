@@ -37,6 +37,16 @@ jobs:
       run: |
         cargo build --profile=${{ matrix.profile }} --all-targets
         cargo test --profile=${{ matrix.profile }} --all-targets
+  test-miri:
+    name: Test with Miri
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: dtolnay/rust-toolchain@nightly
+      with:
+        components: miri
+    - name: Run tests
+      run: cargo miri test
   build-minimum:
     name: Build using minimum versions of dependencies
     runs-on: ubuntu-latest
