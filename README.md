@@ -7,6 +7,7 @@ bufio
 =====
 
 - [Documentation][docs-rs]
+- [Changelog](CHANGELOG.md)
 
 `std::io::Write` for your potentially uninitialized slice of memory.
 
