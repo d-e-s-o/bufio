@@ -1,4 +1,4 @@
-// Copyright (C) 2025 Daniel Mueller <deso@posteo.net>
+// Copyright (C) 2025-2026 Daniel Mueller <deso@posteo.net>
 // SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
 use std::cmp::min;
@@ -44,9 +44,10 @@ impl<'buf> Writer<'buf> {
   /// Retrieve the slice of the managed buffer that has been written so
   /// far.
   #[inline]
-  pub fn written(&self) -> &'buf [u8] {
+  pub fn written(&self) -> &[u8] {
     let slice = &self.buffer[0..self.written];
-    // TODO: Use `MaybeUninit::slice_assume_init_ref` once stable.
+    // TODO: Use `MaybeUninit::assume_init_ref` once our MSRV is
+    //       1.93.
     // SAFETY: This type guarantees that `written` bytes have been
     //         initialized in the buffer.
     unsafe { &*(slice as *const [MaybeUninit<u8>] as *const [u8]) }
@@ -63,7 +64,6 @@ impl io::Write for Writer<'_> {
   #[inline]
   fn write(&mut self, data: &[u8]) -> io::Result<usize> {
     let len = min(data.len(), self.buffer.len() - self.written);
-    // TODO: Use `MaybeUninit::slice_as_mut_ptr` once stable.
     let ptr = self.buffer[self.written..].as_mut_ptr().cast::<u8>();
     // SAFETY: Both source and destination are valid for reads and are
     //         properly aligned as they originate from references. They
