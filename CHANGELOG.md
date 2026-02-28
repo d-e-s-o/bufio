@@ -1,5 +1,5 @@
-Unreleased
-----------
+0.2.0
+-----
 - Restricted lifetime of `Writer::written` returned slice
 
 
